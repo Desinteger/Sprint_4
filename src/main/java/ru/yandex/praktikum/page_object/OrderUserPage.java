@@ -1,15 +1,15 @@
-package ru.yandex.praktikum.pageobject;
+package ru.yandex.praktikum.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class OrderUserPage {
     private WebDriver webdriver;
-    private By nameField = By.xpath(".//div[2]/div[1]/input");
-    private By surnameField = By.xpath(".//div[2]/input");
-    private By adressField = By.xpath(".//div[3]/input");
+    private By nameField = By.cssSelector("input[placeholder=\"* Имя\"]");
+    private By surnameField = By.cssSelector("input[placeholder=\"* Фамилия\"]");
+    private By adressField = By.cssSelector("input[placeholder=\"* Адрес: куда привезти заказ\"]");
     private By metroField = By.className("select-search__input");
-    private By phoneField = By.xpath(".//div[5]/input");
-    private By continueButton = By.xpath(".//div[2]/div[3]/button");
+    private By phoneField = By.cssSelector("input[placeholder=\"* Телефон: на него позвонит курьер\"]");
+    private By continueButton = By.xpath(".//button[contains(text(),'Далее')]");
     public OrderUserPage(WebDriver webdriver) { this.webdriver = webdriver; }
 
     public void setName(String name) { webdriver.findElement(nameField).sendKeys(name); }
